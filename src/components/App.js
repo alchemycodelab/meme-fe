@@ -6,13 +6,10 @@ import {
   Redirect
 } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import LoginUser from '../containers/LoginUser';
 import { getSessionId, getSessionLoading } from '../selectors/sessionSelectors';
 import { sessionVerify } from '../actions/sessionActions';
-
-const Home = () => (
-  <h1>Home</h1>
-);
+import SignupUser from '../containers/SignupUser';
+import CreateMeme from '../containers/CreateMeme';
 
 const PrivateRoute = ({ ...rest }) => {
   const sessionId = useSelector(getSessionId);
@@ -41,8 +38,8 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute exact path="/" component={Home} />
-        <Route path="/login" component={LoginUser} />
+        <PrivateRoute exact path="/" component={CreateMeme} />
+        <Route path="/login" component={SignupUser} />
       </Switch>
     </Router>
   );
