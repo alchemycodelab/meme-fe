@@ -10,6 +10,8 @@ import { getSessionId, getSessionLoading } from '../selectors/sessionSelectors';
 import { sessionVerify } from '../actions/sessionActions';
 import SignupUser from '../containers/SignupUser';
 import CreateMeme from '../containers/CreateMeme';
+import MemeList from '../containers/MemesList';
+import Header from './Header';
 
 const PrivateRoute = ({ ...rest }) => {
   const sessionId = useSelector(getSessionId);
@@ -37,8 +39,10 @@ const PrivateRoute = ({ ...rest }) => {
 export default function App() {
   return (
     <Router>
+      <Header />
       <Switch>
         <PrivateRoute exact path="/" component={CreateMeme} />
+        <PrivateRoute path="/memes" component={MemeList} />
         <Route path="/login" component={SignupUser} />
       </Switch>
     </Router>

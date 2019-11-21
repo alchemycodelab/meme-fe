@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import session from './sessionReducer';
-import meme from './memeReducer';
+import memes from './memeReducer';
 
 export default combineReducers({
   session,
-  meme
+  memes
 });
